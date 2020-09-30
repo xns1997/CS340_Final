@@ -1,0 +1,79 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block rtop %}
+<form class = "form" id = "form4" style="z-index: 7;">
+    <div id="rform1">
+        <table class="top-form-table">
+            <tbody>
+                <tr><td><label>RecipeID: </label><input type="number"></td></tr>
+                <tr><td><label>Name: </label><input type="text"></td></tr>
+            </tbody>
+        </table>
+    </div>
+    <div id="rform2">
+        <table class="top-form-table">
+            <tbody>
+            <tr>
+                <td><label>Material1: </label><input type="number" class="mid-input">X<input type="number" class="short-input"></td>
+                <td><label>Material2: </label><input type="number" class="mid-input">X<input type="number" class="short-input"></td>
+                <td><label>Material3: </label><input type="number" class="mid-input">X<input type="number" class="short-input"></td>
+
+            </tr>
+            <tr>
+                <td><label>Material4: </label><input type="number" class="mid-input">X<input type="number" class="short-input"></td>
+                <td><label>Material5: </label><input type="number" class="mid-input">X<input type="number" class="short-input"></td>
+                <td><label>Material6: </label><input type="number" class="mid-input">X<input type="number" class="short-input"></td>
+
+            </tr>
+
+        </tbody>
+        </table>
+    </div>
+    <div class="button-set-vert">
+        <button>SEARCH</button>
+    </div>
+</form>
+{% endblock %}
+{% block recipe %}
+<div class = "app-result-list" style="z-index: 7;">
+                        <table class="result-table">
+                            <tbody>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Materials</th>
+                                    <th>Operation</th>
+                                </tr>
+                                <tr>
+                                    <td>Cherry-blossom pochette</td>
+                                    <td>
+                                        <div>
+                                            <div>cherry-blossom petal X 6</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <button>Choose</button>
+                                        <button>Delete</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Bunny Day crown</td>
+                                    <td>
+                                        <div>
+                                            <div>Earth Egg X 1</div>
+                                            <div>Stone Egg X 1</div>
+                                            <div>Leaf Egg X 1</div>
+                                            <div>Wood Egg X 1</div>
+                                            <div>Sky Egg X 1</div>
+                                            <div>Water Egg X 1</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <button>Choose</button>
+                                        <button>Delete</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+{% endblock %}

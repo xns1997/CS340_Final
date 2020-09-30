@@ -1,0 +1,187 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block ftop %}
+<form class = "form" id = "form3" style="z-index: 8;">
+    <div id="fimg">
+        <img src="https://vignette.wikia.nocookie.net/animalcrossing/images/d/d6/NH-Furniture-Apple_chair.png/revision/latest?cb=20200325181428">
+    </div>
+    <div id="fform">
+        <table class="top-form-table">
+            <tbody>
+            <tr>
+                <td><label>FurnitureID: </label><input type="number"></td>
+                <td><label>Name: </label><input type="text"></td>
+                <td><label for="fget">Source: </label>
+                    <select id="fget">
+                      <option value="1">Nook's Cranny</option>
+                      <option value="2">DIY</option>
+                      <option value="3">Nook Miles</option>
+                      <option value="4">Nook Shopping</option>
+                      <option value="4">Gulliver</option>
+                      <option value="4">Fishing</option>
+                      <option value="4">Bug-Off</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="fsize">Size:</label>
+                    <select id="fsize">
+                        <option value="0">1*1</option>
+                        <option value="1">1*2</option>
+                        <option value="2">1*3</option>
+                        <option value="3">0.5*2</option>
+                        <option value="4">2*2</option>
+                        <option value="5">2*3</option>
+                        <option value="6">3*3</option>
+                    </select>
+                </td>
+                <td><label>Buy: </label><input type="number" value="0"></td>
+                <td><label>Sell: </label><input type="number" value="0"></td>
+
+            </tr>
+        </tbody>
+        </table>
+    </div>
+    <div class="button-set-vert">
+        <button>SEARCH</button>
+    </div>
+</form>
+
+<form class = "form invisible" id = "form4" style="z-index: 7;">
+    <div id="rform1">
+        <table class="top-form-table">
+            <tbody>
+                <tr><td><label>RecipeID: </label><input type="number"></td></tr>
+                <tr><td><label>Name: </label><input type="text"></td></tr>
+            </tbody>
+        </table>
+    </div>
+    <div id="rform2">
+        <table class="top-form-table">
+            <tbody>
+            <tr>
+                <td><label>Material1: </label><input type="number" class="mid-input">X<input type="number" class="short-input"></td>
+                <td><label>Material2: </label><input type="number" class="mid-input">X<input type="number" class="short-input"></td>
+                <td><label>Material3: </label><input type="number" class="mid-input">X<input type="number" class="short-input"></td>
+
+            </tr>
+            <tr>
+                <td><label>Material4: </label><input type="number" class="mid-input">X<input type="number" class="short-input"></td>
+                <td><label>Material5: </label><input type="number" class="mid-input">X<input type="number" class="short-input"></td>
+                <td><label>Material6: </label><input type="number" class="mid-input">X<input type="number" class="short-input"></td>
+
+            </tr>
+
+        </tbody>
+        </table>
+    </div>
+    <div class="button-set-vert">
+        <button>SEARCH</button>
+    </div>
+</form>
+{% endblock %}
+
+{% block furniture %}
+
+<div class = "app-result-list" style="z-index: 8;">
+                        <table class="result-table">
+                            <tbody>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Source</th>
+                                    <th>Price</th>
+                                    <th>Size</th>
+                                    <th>Recipe</th>
+                                    <th>Operation</th>
+                                </tr>
+                                {% autoescape on %}
+                                {% for route,furniture in data.items %}
+                                <tr>
+                                    <td>{{furniture.name}}</td>
+                                    <td>{{furniture.source}}</td>
+                                    <td><label>Buy:<div>{{furniture.bought}}</div>&#9<label>Sell:</label><div>{{furniture.sold}}</div></td>
+                                    <td>{{furniture.size}}</td>
+                                    <td>
+                                        {% for route,mat in furniture.recipe.items %}
+                                           <div> {{ mat.mat }} * {{ mat.num }} </div>
+                                        {% endfor %}
+                                    </td>
+                                    <td>
+                                        <div class="opButton"  onclick="console.log(this.parentElement.parentElement)"><div>EDIT</div></div>
+                                        <br>
+                                        <div class="opButton" onclick=""><div>DELETE</div></div>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                                <tr>
+                                    <td><input type = "text" placeholder = "NAME" class = "new_input" id = "f_c_name" required></td>
+                                    <td>
+                                        <select id="f_c_source">
+                                            <option value="0">Nook's Cranny</option>
+                                            <option value="1">DIY</option>
+                                            <option value="2">Nook Miles</option>
+                                            <option value="3">Nook Shopping</option>
+                                            <option value="4">Gulliver</option>
+                                            <option value="5">Fishing</option>
+                                            <option value="6">Bug-Off</option>
+                                          </select>
+                                    </td>
+                                    <td>
+                                        <input type = "number" placeholder = "Buy" class = "new_input" id = "f_c_buy" required value="0">
+                                        <input type = "number" placeholder = "Sell" class = "new_input" id = "f_c_sell" required value="0">
+                                    </td>
+                                    <td>
+                                        <select id="f_c_size">
+                                            <option value="0">1*1</option>
+                                            <option value="1">1*2</option>
+                                            <option value="2">1*3</option>
+                                            <option value="3">0.5*2</option>
+                                            <option value="4">2*2</option>
+                                            <option value="5">2*3</option>
+                                            <option value="6">3*3</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <div><input type="number" class="mid-input matinput" id = "mat1" value ="0" >*<input type="number" class="short-input numinput" value ="0" id = "num1"></div>
+                                        <div><input type="number" class="mid-input matinput" id = "mat2" value ="0" >*<input type="number" class="short-input numinput" value ="0" id = "num2"></div>
+                                        <div><input type="number" class="mid-input matinput" id = "mat3" value ="0" >*<input type="number" class="short-input numinput" value ="0" id = "num3"></div>
+                                        <div><input type="number" class="mid-input matinput" id = "mat4" value ="0" >*<input type="number" class="short-input numinput" value ="0" id = "num4"></div>
+                                        <div><input type="number" class="mid-input matinput" id = "mat5" value ="0" >*<input type="number" class="short-input numinput" value ="0" id = "num5"></div>
+                                        <div><input type="number" class="mid-input matinput" id = "mat6" value ="0" >*<input type="number" class="short-input numinput" value ="0" id = "num6"></div>
+                                    </td>
+                                    <td>
+                                        <div class="opButton"  onclick="add_furniture()"><div>ADD</div></div>
+                                        <a href = "" class = "invisible" id = "fadd"></a>
+                                    </td>
+                                </tr>
+                                <script>
+                                    function add_furniture(){
+                                        var name = document.getElementById("f_c_name").value;
+                                        var source = document.getElementById("f_c_source").value;
+                                        var buy = document.getElementById("f_c_buy").value;
+                                        var sell = document.getElementById("f_c_sell").value;
+                                        var size = document.getElementById("f_c_size").value;
+                                        var mats = document.getElementsByClassName("matinput");
+                                        var nums = document.getElementsByClassName("numinput");
+                                        if (name === ""){
+                                            alert("Please Input A name");
+                                            return;
+                                        }
+                                        var url = "add/";
+                                        url += name + "/" + source + "/" + buy + "/" + sell + "/" + size + "/";
+                                        for(i = 0; i < 6; i++){
+                                            url += mats[i].value + "*" + nums[i].value + "/";
+                                        }
+                                        var link = document.getElementById("fadd");
+                                        link.href = url;
+                                        link.click()
+                                        console.log(url)
+                                    }
+                                </script>
+
+                                {% endautoescape %}
+                            </tbody>
+                        </table>
+                    </div>
+{% endblock %}

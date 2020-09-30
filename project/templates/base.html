@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        {% load static %}
+        {% autoescape off %}
+        <div id ="app">
+            <div id = "app-frame">
+                <div id = 'app-head'><div id = 'app-head-container'> <img src = "{% static "./img/Animal_Crossing_logo.png" %}"> </div></div>
+                <div id = 'app-main'>
+                    <div id = 'tag-bar'style = "max-height:30px;">
+                        <a href = '../villagers' class="tag-bar-tag"><div ><label>V​illager</label></div></a>
+                        <a href = '../materials' class="tag-bar-tag"><div ><label>Material</label></div></a>
+                        <a href = '../furnitures' class="tag-bar-tag"><div ><label>Furniture</label></div></a>
+                        {% comment %} <a href = '../recipes' class="tag-bar-tag"><div ><label>Recipe</label></div></a> {% endcomment %}
+                        <a href = '../islands' class="tag-bar-tag"><div ><label>Island</label></div></a>
+                        <a href = '../museums' class="tag-bar-tag"><div ><label>Museum</label></div></a>
+                        
+                        </div>
+                    <div id = 'app-forms'>
+                        
+                        
+                        <div id = 'form-box'style = "height:100%;">
+                            {% block vtop %}{% endblock %}
+                            {% block mtop %}{% endblock %}
+                            {% block ftop %}{% endblock %}
+                            {% comment %} {% block rtop %}{% endblock %} {% endcomment %}
+                            {% block itop %}{% endblock %}
+                            {% block mutop %}{% endblock %}
+                        </div>
+                        {% comment %} {% block topBar %}{% endblock %} {% endcomment %}
+                    </div>
+                    <div id = 'app-result'>
+                        <div id="app-result-box">
+                            {% block content %}{% endblock %}
+                            {% block villager %}{% endblock %}
+                            {% block material %}{% endblock %}
+                            {% block furniture %}{% endblock %}
+                            {% comment %} {% block recipe %}{% endblock %} {% endcomment %}
+                            {% block island %}{% endblock %}
+                            {% block museum %}{% endblock %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endautoescape %}
+    </body>
+    {% comment %} <script defer="" type="text/javascript" src="{% static "./js/main.js" %}" charset="utf-8"></script> {% endcomment %}
+    <link href="{% static "./css/main.css" %}" rel="stylesheet" type="text/css">
+</html>

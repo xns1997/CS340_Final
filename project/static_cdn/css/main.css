@@ -1,0 +1,258 @@
+html{
+    height: 100%;
+    width: 100%;
+}
+
+body{
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    display: block;
+}
+
+a{
+    text-decoration: none;
+}
+
+.invisible{
+    visibility: hidden;
+}
+
+#app{
+    height: 100%;
+    background-image: url('../img/ac-new-horizons-nook-pattern-3840x2160-1.jpg');
+    background-repeat:repeat-y;
+    background-size: auto;
+    /* background-size: 100% 100%; */
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+}
+
+#app-frame{
+    height:100%;
+    width:50%;
+    min-width: 1080px;
+    background-color: rgba(255, 255, 255, 0.603);
+    display: flex;
+    flex-direction: column;
+}
+#app-head{
+    height: 5%;
+}
+#app-head > div{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+#app-head-container > img{
+    height: 100%;
+}
+#app-head-title{
+    font-size: 20px;
+    width: 150px;
+}
+#app-main{
+    height: 95%;
+}
+#app-forms{
+    height: 25%;
+    background-color: rgba(255, 255, 255, 0.685);
+}
+#app-result{
+    height: inherit;
+    background-color: rgba(216, 255, 45, 0.486);
+
+}
+#tag-bar{
+    display: flex;
+    flex-direction: row;
+    height: 10%;
+    max-height: 30px;
+    color: rgb(230,189,50);
+    text-shadow: 0 0 5px rgb(158, 76, 0), 0 0 5px #c7ba0b;
+}
+
+.tag-bar-tag{
+    width: 20%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 140%;
+    background-color: rgba(168, 250, 182, 0.781);
+
+}
+.tag-bar-tag:hover{
+    background-color: rgba(76, 194, 95, 0.781);
+
+}
+.tag-choosed{
+    background-color: rgba(76, 194, 95, 0.781);
+}
+#form-box{
+    height:100%;
+    background-color: rgba(76, 194, 95, 0.781);
+    position: relative;
+    /* padding: 10px; */
+}
+iframe{
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+.form{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    height: calc( 100% - 20px);
+    width: calc( 100% - 20px);
+    display: flex;
+    flex-direction: row;
+}
+
+#vimg,#mimg,#fimg,#mmimg{
+    display: flex;
+    height: 100%;
+    width: 15%;
+    align-items: center;
+    justify-content: center;
+
+}
+
+#vimg > img{
+    height: 75%;
+}
+#mimg > img{
+    height: 75%;
+}
+#fimg > img{
+    height: 75%;
+}
+#mmimg > img{
+  height: 75%;
+}
+.top-form-table{
+    height: 100%;
+}
+.top-form-table >tbody{
+    height: 100%;
+}
+
+tr{
+    /* height: 30%; */
+}
+
+input{
+    height: 30%;
+    font-size: 100%;
+    border: none;
+    outline: none;
+    max-height: 50px;
+}
+select{
+    width: inherit;
+    height: 30%;
+    font-size: 100%;
+    outline: none;
+    max-height: 50px;
+}
+.button-set-vert{
+    display: flex;
+    right: 0;
+    /* justify-content: flex-end; */
+    flex-direction: column;
+}
+
+.button-set-vert >button{
+    height: 33%;
+    width: 100%;
+}
+
+.short-input{
+    width: 40px;
+}
+.mid-input{
+    width: 80px;
+}
+#app-result-box{
+    height: 100%;
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+.app-result-list{
+    position: absolute;
+    height: 100%;
+    width: 90%;
+    background-color: rgba(253, 255, 117, 0.63);
+    font-size: large;
+}
+
+.result-table{
+    width: 100%;
+}
+
+.result-table > tbody >tr{
+    background-color: rgba(248, 248, 248, 0.767);
+}
+
+.result-table > tbody >tr >td{
+    width: 150px;
+    height: 80px;
+    padding: 0;
+    text-align: center;
+
+}
+
+.island_row{
+    display: flex;
+    flex-direction: row;
+}
+
+.island_row > div{
+    height: 100%;
+    width: 20%;
+}
+
+
+.price{
+    /* display: inline; */
+}
+
+.new_input{
+    width: 80%;
+}
+
+.new_select{
+    width:100%;
+}
+
+a{
+    color: rgb(230,189,50);
+    text-shadow: 0 0 5px rgb(158, 76, 0), 0 0 5px #c7ba0b;
+}
+a:hover{
+    background-color: rgba(76, 194, 95, 0.781);
+
+}
+
+.opButton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    height: 30%;
+    max-height: 30px;
+    font-size: 15px;
+    background-color: rgb(243, 243, 243);
+    user-select: none;
+}
+.opButton:hover{
+    background-color: #7a7a7a;
+}
+.opButton:active{
+    background-color: #c0c0c0;
+}

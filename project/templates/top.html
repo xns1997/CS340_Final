@@ -1,0 +1,142 @@
+
+{% load static %}
+{% block topBar %}
+{% autoescape on %}
+<div id = 'tag-bar'>
+<a href = '../villagers' class="tag-bar-tag"><div ><label>V​illager</label></div></a>
+<a href = '../materials' class="tag-bar-tag"><div ><label>Material</label></div></a>
+<a href = '../' class="tag-bar-tag"><div ><label>Furniture</label></div></a>
+<a href = '../' class="tag-bar-tag"><div ><label>Recipe</label></div></a>
+<a href = '../' class="tag-bar-tag"><div ><label>Island</label></div></a>
+<a href = '../' class="tag-bar-tag"><div ><label>Museum</label></div></a>
+
+</div>
+<div id = 'form-box'>
+                    
+                    <form class = "form invisible" id = "form4" style="z-index: 7;">
+                        <div id="rform1">
+                            <table class="top-form-table">
+                                <tbody>
+                                    <tr><td><label>RecipeID: </label><input type="number"></td></tr>
+                                    <tr><td><label>Name: </label><input type="text"></td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div id="rform2">
+                            <table class="top-form-table">
+                                <tbody>
+                                <tr>
+                                    <td><label>Material1: </label><input type="number" class="mid-input">X<input type="number" class="short-input"></td>
+                                    <td><label>Material2: </label><input type="number" class="mid-input">X<input type="number" class="short-input"></td>
+                                    <td><label>Material3: </label><input type="number" class="mid-input">X<input type="number" class="short-input"></td>
+
+                                </tr>
+                                <tr>
+                                    <td><label>Material4: </label><input type="number" class="mid-input">X<input type="number" class="short-input"></td>
+                                    <td><label>Material5: </label><input type="number" class="mid-input">X<input type="number" class="short-input"></td>
+                                    <td><label>Material6: </label><input type="number" class="mid-input">X<input type="number" class="short-input"></td>
+
+                                </tr>
+
+                            </tbody>
+                            </table>
+                        </div>
+                        <div class="button-set-vert">
+                            <button>SEARCH</button>
+                        </div>
+                    </form>
+                    <form class = "form invisible" id = "form5" style="z-index: 6;">
+                        <div id="rform1">
+                            <table class="top-form-table">
+                                <tbody>
+                                    <tr><td><label>UserID: </label><input type="number"></td></tr>
+                                    <tr><td><label>IslandID: </label><input type="number"></td></tr>
+                                    <tr><td><label>Name: </label><input type="text"></td></tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                        <div id="rform2">
+                            <table class="top-form-table">
+                                <tbody>
+                                <tr>
+                                    <td><label>Villager1: </label><input type="number" class="mid-input"></td>
+                                    <td><label>Villager2: </label><input type="number" class="mid-input"></td>
+                                    <td><label>Villager3: </label><input type="number" class="mid-input"></td>
+                                    <td><label>Villager4: </label><input type="number" class="mid-input"></td>
+                                    <td><label>Villager5: </label><input type="number" class="mid-input"></td>
+
+                                </tr>
+                                <tr>
+                                    <td><label>Villager6: </label><input type="number" class="mid-input"></td>
+                                    <td><label>Villager7: </label><input type="number" class="mid-input"></td>
+                                    <td><label>Villager8: </label><input type="number" class="mid-input"></td>
+                                    <td><label>Villager9: </label><input type="number" class="mid-input"></td>
+                                    <td><label>VillagerX: </label><input type="number" class="mid-input"></td>
+
+                                </tr>
+
+                            </tbody>
+                            </table>
+                        </div>
+                        <div class="button-set-vert">
+                            <button>SEARCH</button>
+                        </div>
+                    </form>
+                      <form class = "form invisible" id = "form6" style="z-index: 5;">
+                                <div id="mmimg">
+                                    <img src="https://vignette.wikia.nocookie.net/animalcrossing/images/b/b3/NH-character-Blathers.png/revision/latest?cb=20200229053519">
+                                </div>
+                                <div id="mmform">
+                                    <table class="top-form-table">
+                                        <tbody>
+                                        <tr>
+                                            <td><label>CritterID: </label><input type="number"></td>
+                                            <td><label>Name: </label><input type="text"></td>
+                                            <td><label for="mmSpecies">Species: </label>
+                                                <select id="mmSpecies">
+                                                  <option value="1">Fish</option>
+                                                  <option value="2">Bug</option>
+                                                </select>
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                            <td><label for="mmLocation">Location:</label>
+                                                <select id="mmLocation">
+                                                    <option value="0">NULL</option>
+                                                    <option value="1">River</option>
+                                                    <option value="2">Pond</option>
+                                                    <option value="3">Sea</option>
+                                                    <option value="4">Pier</option>
+                                                    <option value="5">Flying</option>
+                                                    <option value="6">On Trees</option>
+                                                    <option value="7">On Ground</option>
+                                                    <option value="8">Underground</option>
+                                                </select>
+                                            </td>
+                                            <td><label for= "mmTime">Time</label>
+                                                <select id="mmTime">
+                                                    <option value="0">NULL</option>
+                                                    <option value="1">4AM ~ 7PM</option>
+                                                    <option value="2">8AM ~ 7PM</option>
+                                                    <option value="3">4AM ~ 5PM</option>
+                                                    <option value="4">5PM ~ 8AM</option>
+                                                    <option value="5">8AM ~ 5PM</option>
+                                                    <option value="6">8AM ~ 4PM</option>
+                                                  </select>
+                                            </td>
+                                            <td><label>Value: </label><input type="text"></td>
+
+                                        </tr>
+                                    </tbody>
+                                    </table>
+                                </div>
+                                <div class="button-set-vert">
+                                    <button>SEARCH</button>
+                                </div>
+                        </form>
+                  </form>
+                </div>
+{% endautoescape %}
+{% endblock %}

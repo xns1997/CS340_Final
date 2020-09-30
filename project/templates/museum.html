@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block mutop %}
+<form class = "form" id = "form6" style="z-index: 5;">
+    <div id="mmimg">
+        <img src="https://vignette.wikia.nocookie.net/animalcrossing/images/b/b3/NH-character-Blathers.png/revision/latest?cb=20200229053519">
+    </div>
+    <div id="mmform">
+        <table class="top-form-table">
+            <tbody>
+            <tr>
+                <td><label>CritterID: </label><input type="number"></td>
+                <td><label>Name: </label><input type="text"></td>
+                <td><label for="mmSpecies">Species: </label>
+                    <select id="mmSpecies">
+                      <option value="1">Fish</option>
+                      <option value="2">Bug</option>
+                    </select>
+                </td>
+
+            </tr>
+            <tr>
+                <td><label for="mmLocation">Location:</label>
+                    <select id="mmLocation">
+                        <option value="0">NULL</option>
+                        <option value="1">River</option>
+                        <option value="2">Pond</option>
+                        <option value="3">Sea</option>
+                        <option value="4">Pier</option>
+                        <option value="5">Flying</option>
+                        <option value="6">On Trees</option>
+                        <option value="7">On Ground</option>
+                        <option value="8">Underground</option>
+                    </select>
+                </td>
+                <td><label for= "mmTime">Time</label>
+                    <select id="mmTime">
+                        <option value="0">NULL</option>
+                        <option value="1">4AM ~ 7PM</option>
+                        <option value="2">8AM ~ 7PM</option>
+                        <option value="3">4AM ~ 5PM</option>
+                        <option value="4">5PM ~ 8AM</option>
+                        <option value="5">8AM ~ 5PM</option>
+                        <option value="6">8AM ~ 4PM</option>
+                      </select>
+                </td>
+                <td><label>Value: </label><input type="text"></td>
+
+            </tr>
+        </tbody>
+        </table>
+    </div>
+    <div class="button-set-vert">
+        <button>SEARCH</button>
+    </div>
+</form>
+{% endblock %}
+{% block museum %}
+<div class = "app-result-list" style="z-index: 5;">
+                        <table class="result-table">
+                            <tbody>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Species</th>
+                                        <th>Location</th>
+                                        <th>Time</th>
+                                        <th>Value</th>
+                                        <th>Month</th>
+                                        <th>Operation</th>
+                                    </tr>
+                                    <tr>
+                                        <td>Common Butterfly</td>
+                                        <td>Bug</td>
+                                        <td>Flying</td>
+                                        <td>4AM - 7PM</td>
+                                        <td>160</td>
+                                        <td>September - June</td>
+                                        <td>
+                                        <button>Choose</button>
+                                        <button>Delete</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Bitterling</td>
+                                    <td>Fish</td>
+                                    <td>River</td>
+                                    <td>All day</td>
+                                    <td>900</td>
+                                    <td>November - March</td>
+                                    <td>
+                                        <button>Choose</button>
+                                        <button>Delete</button>
+                                    </td>
+                                    </tr>
+                </tbody>
+            </table>
+        </div>
+{% endblock %}

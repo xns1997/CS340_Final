@@ -1,0 +1,248 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block vtop %}
+
+<form class = "form" id = "form1" style="z-index: 10;">
+    <div id="vimg">
+        <img src="https://img.rankedboost.com/wp-content/plugins/animal-crossing-new-horizons/assets/villager-images/Raymond.png">
+    </div>
+    <div id="vform">
+        <table class="top-form-table">
+            <tbody>
+            <tr>
+                <td><label>VillagerID: </label><input type="number"></td>
+                <td><label>Name: </label><input type="text"></td>
+                <td><label for="vgender">Gender: </label>
+                    <select id="vgender">
+                      <option value="1">Male</option>
+                      <option value="2">Famale</option>
+                    </select>
+                </td>
+
+            </tr>
+            <tr>
+                <td><label for="vspecies">Species:</label>
+                    <select id="vspecies">
+                        <option value="0">NULL</option>
+                        <option value="1">Alligator</option>
+                        <option value="2">Anteater</option>
+                        <option value="3">Bear</option>
+                        <option value="4">Bird</option>
+                        <option value="5">Bull</option>
+                        <option value="6">Cat</option>
+                        <option value="7">Chicken</option>
+                        <option value="8">Cow</option>
+                    </select>
+                </td>
+                <td><label for= "vper">Personality</label>
+                    <select id="vper">
+                        <option value="1">Lazy (Bonyari)</option>
+                        <option value="2">Jock (Hakihaki)</option>
+                        <option value="3">Cranky (Kowai)</option>
+                        <option value="4">Smug (Kiza)</option>
+                        <option value="5">Normal (Futsuu)</option>
+                        <option value="6">Peppy (Genki)</option>
+                        <option value="7">Snooty (Otona)</option>
+                        <option value="8">Sisterly (Aneki)</option>
+                        <option value="9">NULL</option>
+                      </select>
+                </td>
+                <td><label>Phrase: </label><input type="text"></td>
+
+            </tr>
+        </tbody>
+        </table>
+    </div>
+    <div class="button-set-vert">
+        <button>SEARCH</button>
+    </div>
+</form>
+
+{% endblock %}
+
+
+{% block villager %}
+<div class = "app-result-list" style="z-index: 10;">
+    <table class="result-table">
+        <tbody>
+            <tr>
+                <th>Name</th>
+                <th>Gender</th>
+                <th>Species</th>
+                <th>Phrase</th>
+                <th>Personality</th>
+                {% comment %} <th>Clothes</th> {% endcomment %}
+                <th>Birthday</th>
+                <th>Operation</th>
+            </tr>
+            {% autoescape on %}
+            {% for route,villager in data.items %}
+            {% if villager.edit == 0 %}
+            <tr>
+                <td>{{villager.name}}</td>
+                <td>
+                    {% if villager.gender == 0 %}
+                        MALE
+                    {% else %}
+                        FAMALE
+                    {% endif %}
+                </td>
+                <td>{{villager.species}}</td>
+                <td>{{villager.phrase}}</td>
+                <td>{{villager.personality}}</td>
+                {% comment %} <td>{{villager.cloth}}</td> {% endcomment %}
+                <td>{{villager.birthday}}</td>
+                <td>
+                    <div class="opButton" onclick="location.href='edit/{{villager.name}}/';"><div>EDIT</div></div>
+                    <br>
+                    <div class="opButton" onclick="location.href='delete/{{villager.name}}/';"><div>DELETE</div></div>
+                </td>
+            </tr>
+            {% else %}
+                <tr>
+                <td><input type = "text" placeholder = "NAME" class = "new_input" id = "v_u_name" required value = "{{villager.name}}"></td>
+                <td>
+                    <select id="v_u_gender" class = "new_select" value = {{villager.gender_num}}>
+                        <option value="1">Male</option>
+                        <option value="2">Famale</option>
+                    </select>
+                </td>
+                <td>
+                    <select id="v_u_species" class = "new_select" value = {{villager.sp_num}} >
+                        <option value="0">NULL</option>
+                        <option value="1">Alligator</option>
+                        <option value="2">Anteater</option>
+                        <option value="3">Bear</option>
+                    </select>
+                </td>
+                <td>
+                    <input type = "text" placeholder = "Phrase" class = "new_input" id = "v_u_phrase" required value = "{{villager.phrase}}">
+                </td>
+                <td>
+                    <select id="v_u_person" class = "new_select" value = {{villager.per_num}}>
+                        <option value="0">Lazy (Bonyari)</option>
+                        <option value="1">Jock (Hakihaki)</option>
+                        <option value="2">Cranky (Kowai)</option>
+                        <option value="3">Smug (Kiza)</option>
+                        <option value="4">Normal (Futsuu)</option>
+                        <option value="5">Peppy (Genki)</option>
+                        <option value="6">Snooty (Otona)</option>
+                        <option value="7">Sisterly (Aneki)</option>
+                        <option value="8">NULL</option>
+                    </select>
+                </td>
+                <td><input type = "text" placeholder = "MM-DD" class = "new_input" id = "v_u_birth" required value = "{{villager.birthday}}"></td>
+                <td>
+                    <div class="opButton" onclick="update_villager()"><div>UPDATE</div></div>
+                    <input class = "invisible" id = "v_u_id" value = {{villager.id}}></div>
+                    <a href = "" class = "invisible" id = "vupdate"></a>
+                </td>
+            </tr>
+            {% endif %}
+            {% endfor %}
+            <tr>
+                <td><input type = "text" placeholder = "NAME" class = "new_input" id = "v_c_name" required></td>
+                <td>
+                    <select id="v_c_gender" class = "new_select">
+                        <option value="1">Male</option>
+                        <option value="2">Famale</option>
+                    </select>
+                </td>
+                <td>
+                    <select id="v_c_species" class = "new_select" >
+                        <option value="0">NULL</option>
+                        <option value="1">Alligator</option>
+                        <option value="2">Anteater</option>
+                        <option value="3">Bear</option>
+                    </select>
+                </td>
+                <td>
+                    <input type = "text" placeholder = "Phrase" class = "new_input" id = "v_c_phrase" required>
+                </td>
+                <td>
+                    <select id="v_c_person" class = "new_select">
+                        <option value="0">Lazy (Bonyari)</option>
+                        <option value="1">Jock (Hakihaki)</option>
+                        <option value="2">Cranky (Kowai)</option>
+                        <option value="3">Smug (Kiza)</option>
+                        <option value="4">Normal (Futsuu)</option>
+                        <option value="5">Peppy (Genki)</option>
+                        <option value="6">Snooty (Otona)</option>
+                        <option value="7">Sisterly (Aneki)</option>
+                        <option value="8">NULL</option>
+                    </select>
+                </td>
+                <!-- <td>
+                    <select id="vcloth" class = "new_select">
+                        <option value="0">NULL</option>
+                        <option value="1">Cloth1</option>
+                        <option value="2">Cloth2</option>
+                        <option value="3">Cloth3</option>
+                    </select>
+                </td> -->
+                <td><input type = "text" placeholder = "MMDD" class = "new_input" id = "v_c_birth" required></td>
+                <td>
+                    <!-- <button type="submit" onclick="add_villager()">ADD</button> -->
+                    <div class="opButton" onclick="add_villager()"><div>ADD</div></div>
+                    <a href = "" class = "invisible" id = "vadd"></a>
+                </td>
+            </tr>
+            {% endautoescape %}
+        </tbody>
+    </table>
+    <script>
+        function add_villager(){
+            var name = document.getElementById("v_c_name").value;
+            var gender = document.getElementById("v_c_gender").value;
+            var species = document.getElementById("v_c_species").value;
+            var phrase = document.getElementById("v_c_phrase").value;
+            var per = document.getElementById("v_c_person").value;
+            var birthday = document.getElementById("v_c_birth").value;
+            var url = "add/";
+            if (name === ""){
+                name = "nah"
+            }
+            if (birthday === ""){
+                birthday = "xx-xx"
+            }
+            if (phrase === ""){
+                phrase = "nah"
+            }
+            url += name + "/" + gender + "/" + species + "/" + phrase + "/"+ per + "/" + birthday
+            var link = document.getElementById("vadd");
+            link.href = url;
+            link.click()
+            console.log(url)
+            // return url;
+        }
+        function update_villager(){
+            var name = document.getElementById("v_u_name").value;
+            var gender = document.getElementById("v_u_gender").value;
+            var species = document.getElementById("v_u_species").value;
+            var phrase = document.getElementById("v_u_phrase").value;
+            var per = document.getElementById("v_u_person").value;
+            var birthday = document.getElementById("v_u_birth").value;
+            var id = document.getElementById("v_u_id").value
+            var url = "/villagers/update/";
+            if (name === ""){
+                name = "nah"
+            }
+            if (birthday === ""){
+                birthday = "xx-xx"
+            }
+            if (phrase === ""){
+                phrase = "nah"
+            }
+            url += id + "/" + name + "/" + gender + "/" + species + "/" + phrase + "/"+ per + "/" + birthday
+            var link = document.getElementById("vupdate");
+            link.href = url;
+            link.click()
+            console.log(url)
+        }
+        function send_get(post){
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", post, true);
+        }
+    </script>
+</div>
+{% endblock %}

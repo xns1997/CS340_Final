@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block itop %}
+<form class = "form" id = "form5" style="z-index: 6;">
+    <div id="rform1">
+        <table class="top-form-table">
+            <tbody>
+                <tr><td><label>UserID: </label><input type="number"></td></tr>
+                <tr><td><label>IslandID: </label><input type="number"></td></tr>
+                <tr><td><label>Name: </label><input type="text"></td></tr>
+
+            </tbody>
+        </table>
+    </div>
+    <div id="rform2">
+        <table class="top-form-table">
+            <tbody>
+            <tr>
+                <td><label>Villager1: </label><input type="number" class="mid-input"></td>
+                <td><label>Villager2: </label><input type="number" class="mid-input"></td>
+                <td><label>Villager3: </label><input type="number" class="mid-input"></td>
+                <td><label>Villager4: </label><input type="number" class="mid-input"></td>
+                <td><label>Villager5: </label><input type="number" class="mid-input"></td>
+
+            </tr>
+            <tr>
+                <td><label>Villager6: </label><input type="number" class="mid-input"></td>
+                <td><label>Villager7: </label><input type="number" class="mid-input"></td>
+                <td><label>Villager8: </label><input type="number" class="mid-input"></td>
+                <td><label>Villager9: </label><input type="number" class="mid-input"></td>
+                <td><label>VillagerX: </label><input type="number" class="mid-input"></td>
+
+            </tr>
+
+        </tbody>
+        </table>
+    </div>
+    <div class="button-set-vert">
+        <button>SEARCH</button>
+    </div>
+</form>
+{% endblock %}
+{% block island %}
+<div class = "app-result-list" style="z-index: 6;">
+     <table class="result-table">
+                            <tbody>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Villagers</th>
+                                        <th>Operation</th>
+                                    </tr>
+                                    <tr>
+                                        <td>My_ISLAND</td>
+                                        <td>
+                                            <div class = "island_row">
+                                                <div>1</div>
+                                                <div>1</div>
+                                                <div>1</div>
+                                                <div>1</div>
+                                                <div>1</div>
+                                            </div>
+                                            <div class = "island_row">
+                                                <div>2</div>
+                                                <div>2</div>
+                                                <div>2</div>
+                                                <div>2</div>
+                                                <div>2</div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                        <button>Choose</button>
+                                        <button>Delete</button>
+                                        </td>
+                                    </tr>
+                </tbody>
+            </table>
+</div>
+{% endblock %}

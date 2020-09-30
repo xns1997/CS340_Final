@@ -1,0 +1,24 @@
+{% include 'base.html' %}
+{% load static %}
+{% block content %}
+<div id ="app">
+    <div id = "app-frame">
+        <div id = 'app-head'><div id = 'app-head-container'> <img src = "{% static "./img/Animal_Crossing_logo.png" %}"> </div></div>
+        <div id = 'app-main'>
+            <div id = 'app-forms'>
+                {% include 'top.html' %}
+                <h1>Hello</h1>
+                {% block topBar %}{% endblock %}
+                
+            </div>
+            <div id = 'app-result'>
+                <div id="app-result-box">
+                    {% if villagers %}
+                        {% comment %} {% include villagers %} {% endcomment %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

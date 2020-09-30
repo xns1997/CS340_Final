@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block mtop %}
+<form class = "form" id = "form2" style="z-index: 9;">
+    <div id="mimg">
+        <img src="https://img.rankedboost.com/wp-content/plugins/animal-crossing-new-horizons/assets/DIY-Images/Clump%20of%20weeds.png">
+    </div>
+    <div id="mform">
+        <table class="top-form-table">
+            <tbody>
+            <tr>
+                <td><label>MaterialID: </label><input type="number"></td>
+                <td><label>Name: </label><input type="text"></td>
+                <td><label for="mrare">Rarity: </label>
+                    <select id="mrare">
+                        <option value="0">NULL</option>
+                        <option value="1">Very Common</option>
+                        <option value="2">Common</option>
+                        <option value="3">Rare</option>
+                        <option value="4">Super Rare</option>
+                        <option value="5">Seasonal</option>
+                        <option value="6">Event Limited</option>
+                    </select>
+                </td>
+
+            </tr>
+
+        </tbody>
+        </table>
+    </div>
+    <div class="button-set-vert">
+        <button>SEARCH</button>
+    </div>
+</form>
+{% endblock %}
+{% block material %}
+<div class = "app-result-list" style="z-index: 11;">
+                        <table class="result-table">
+                            <tbody>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Rarity</th>
+                                    <th>Operation</th>
+                                </tr>
+                                {% autoescape on %}
+                                {% for route,material in data.items %}
+                                <tr>
+                                    <td>{{material.name}}</td>
+                                    <td>{{material.rarity}}</td>
+                                    <td>
+                                        <div class="opButton"  onclick="console.log(this.parentElement.parentElement)"><div>EDIT</div></div>
+                                        <br>
+                                        <div class="opButton" onclick=""><div>DELETE</div></div>
+                                    </td>
+                                </tr>
+                                
+                                {% endfor %}
+                                <tr>
+                                    <td><input type = "text" placeholder = "NAME" class = "new_input" id = "mname" required></td>
+                                    <td>
+                                        <select id="m_c_rare">
+                                            <option value="0">NULL</option>
+                                            <option value="1">Very Common</option>
+                                            <option value="2">Common</option>
+                                            <option value="3">Rare</option>
+                                            <option value="4">Super Rare</option>
+                                            <option value="5">Seasonal</option>
+                                            <option value="6">Event Limited</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <div class="opButton"  onclick="add_material()"><div>ADD</div></div>
+                                        <a href = "" class = "invisible" id = "madd"></a>
+                                    </td>
+                                </tr>
+                            {% endautoescape %}
+                            </tbody>
+                        </table>
+                    </div>
+                    <script>
+                        function add_material(){
+                            var name = document.getElementById("mname").value;
+                            var rare = document.getElementById("m_c_rare").value;
+                            if (name === ""){
+                                alert("Please Input A name");
+                                return;
+                            }
+                            var url = "/materials/add/";
+                            url += name + "/" + rare
+                            var link = document.getElementById("madd");
+                            link.href = url;
+                            link.click()
+                            console.log(url)
+                        }
+                    </script>
+{% endblock %} 
